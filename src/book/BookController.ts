@@ -8,7 +8,8 @@ export default class BookController {
   bookService = container.resolve(BookService);
   router = express.Router();
 
-  constructor(bookService) {
+  // the constructor is now only used for injecting dependencies during unit tests
+  constructor(bookService: BookService) {
     this.bookService = bookService;
   }
 
