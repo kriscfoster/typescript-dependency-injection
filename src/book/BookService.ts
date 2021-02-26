@@ -1,4 +1,4 @@
-class BookService {
+export default class BookService {
 
   books = [
     { id: 1, name: 'The Pragmatic Programmer' },
@@ -9,5 +9,3 @@ class BookService {
     return this.books;
   }
 }
-
-export default BookService;

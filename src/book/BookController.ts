@@ -1,7 +1,7 @@
 import express from 'express';
 import BookService from './BookService';
 
-class BookController {
+export default class BookController {
 
   bookService: BookService;
   router = express.Router();
@@ -19,5 +19,3 @@ class BookController {
     return this.router;
   }
 }
-
-export default BookController;
