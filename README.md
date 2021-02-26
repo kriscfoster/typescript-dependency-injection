@@ -1,1 +1,1 @@
-# dependency-injection-spike
+# javascript-dependency-injection
