@@ -1,6 +1,6 @@
-const sinon = require('sinon');
-const BookController = require('../../src/book/BookController').default
-const BookService = require('../../src/book/BookService').default
+import sinon from 'sinon';
+import BookController from '../../src/book/BookController';
+import BookService from '../../src/book/BookService';
 
 describe('BookController >', () => {
 
