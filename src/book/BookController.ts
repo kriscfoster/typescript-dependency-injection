@@ -1,21 +1,22 @@
 import express from 'express';
 import BookService from './BookService';
-const router = express.Router();
 
 class BookController {
 
   bookService: BookService;
+  router = express.Router();
 
   constructor(bookService: BookService) {
     this.bookService = bookService;
   }
 
+  getBooksRoute() {
+    return this.bookService.getBooks();
+  }
+
   routes() {
-    router.get('/', (req, res) => {
-      res.send(this.bookService.getBooks()); 
-    });
-    
-    return router;
+    this.router.get('/', (_req, res) => res.send(this.getBooksRoute()));
+    return this.router;
   }
 }
 
