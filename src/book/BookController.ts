@@ -1,11 +1,14 @@
 import express from 'express';
+import { injectable, container } from 'tsyringe';
 import BookService from './BookService';
 
-class BookController {
+@injectable()
+export default class BookController {
 
-  bookService: BookService;
+  bookService = container.resolve(BookService);
   router = express.Router();
 
+  // the constructor is now only used for injecting dependencies during unit tests
   constructor(bookService: BookService) {
     this.bookService = bookService;
   }
@@ -19,5 +22,3 @@ class BookController {
     return this.router;
   }
 }
-
-export default BookController;
