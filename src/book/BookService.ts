@@ -1,5 +1,7 @@
-class BookService {
+import { injectable } from "tsyringe";
 
+@injectable()
+export default class BookService {
   books = [
     { id: 1, name: 'The Pragmatic Programmer' },
     { id: 2, name: 'Poems that Solve Puzzles' },
@@ -9,5 +11,3 @@ class BookService {
     return this.books;
   }
 }
-
-export default BookService;

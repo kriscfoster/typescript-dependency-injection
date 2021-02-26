@@ -1,14 +1,12 @@
 import express from 'express';
+import { injectable, container } from 'tsyringe';
 import BookService from './BookService';
 const router = express.Router();
 
-class BookController {
+@injectable()
+export default class BookController {
 
-  bookService: BookService;
-
-  constructor(bookService: BookService) {
-    this.bookService = bookService;
-  }
+  bookService = container.resolve(BookService);
 
   routes() {
     router.get('/', (req, res) => {
@@ -18,5 +16,3 @@ class BookController {
     return router;
   }
 }
-
-export default BookController;
