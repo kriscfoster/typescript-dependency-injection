@@ -8,6 +8,10 @@ export default class BookController {
   bookService = container.resolve(BookService);
   router = express.Router();
 
+  constructor(bookService) {
+    this.bookService = bookService;
+  }
+
   getBooksRoute() {
     return this.bookService.getBooks();
   }
