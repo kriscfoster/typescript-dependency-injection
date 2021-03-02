@@ -1,16 +1,15 @@
-import express from 'express';
-import { injectable, container } from 'tsyringe';
+import { Router } from 'express';
+import { container, autoInjectable } from 'tsyringe';
 import BookService from './BookService';
 
-@injectable()
+@autoInjectable()
 export default class BookController {
+  bookService: BookService;
+  router: Router;
 
-  bookService = container.resolve(BookService);
-  router = express.Router();
-
-  // the constructor is now only used for injecting dependencies during unit tests
   constructor(bookService: BookService) {
     this.bookService = bookService;
+    this.router = new Router();
   }
 
   getBooksRoute() {
