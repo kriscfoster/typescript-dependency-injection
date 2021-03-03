@@ -1,6 +1,3 @@
-import { injectable } from 'tsyringe';
-
-@injectable()
 export default class BookRepository {
   books = [
     { id: 1, name: 'The Pragmatic Programmer' },
