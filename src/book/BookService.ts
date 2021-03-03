@@ -1,13 +1,15 @@
 import { injectable } from 'tsyringe';
+import BookRepository from './BookRepository';
 
 @injectable()
 export default class BookService {
-  books = [
-    { id: 1, name: 'The Pragmatic Programmer' },
-    { id: 2, name: 'Poems that Solve Puzzles' },
-  ];
+  bookRepository: BookRepository;
+
+  constructor(bookRepository: BookRepository) {
+    this.bookRepository = bookRepository;
+  }
 
   getBooks() {
-    return this.books;
+    return this.bookRepository.getBooks();
   }
 }
