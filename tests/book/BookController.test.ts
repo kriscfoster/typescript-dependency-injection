@@ -1,5 +1,6 @@
 import sinon from 'sinon';
 import BookController from '../../src/book/BookController';
+import BookRepository from '../../src/book/BookRepository';
 import BookService from '../../src/book/BookService';
 
 describe('BookController >', () => {
@@ -7,7 +8,7 @@ describe('BookController >', () => {
   let bookService;
 
   beforeEach(() => {
-    bookService = new BookService();
+    bookService = new BookService(new BookRepository());
   });
 
   test('no books >', () => {
